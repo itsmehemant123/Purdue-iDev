@@ -10,6 +10,10 @@ import UIKit
 import Firebase
 
 class FeedViewController: UITableViewController {
+    
+    var dataRef = FIRDatabase.database().reference()
+    var storRef = FIRStorage.storage().reference()
+    var posts: [Post] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +23,10 @@ class FeedViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(FeedViewController.loadMessages), for: UIControlEvents.valueChanged)
+        tableView.addSubview(refreshControl!)
+        loadMessages()
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,12 +38,12 @@ class FeedViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return posts.count
     }
     
     @IBAction func onSignOut(_ sender: Any) {
@@ -51,16 +59,50 @@ class FeedViewController: UITableViewController {
         }
         
     }
+    
+    func loadMessages() {
+        dataRef.observe(.value, with: {(snapshot) in
+            self.posts = []
+            if snapshot.hasChild("posts") {
+                guard let sp = snapshot.childSnapshot(forPath: "posts").children.allObjects as? [FIRDataSnapshot] else {
+                    print("no posts")
+                    return
+                }
+                for snap in sp {
+                    guard let pDict = snap.value as? Dictionary<String, AnyObject> else {
+                        print("Error parsing dict")
+                        return
+                    }
+                    let post = Post(dict: pDict)
+                    self.posts.insert(post, at: 0)
+                    
+                }
+                
+                self.tableView.reloadData()
+                
+            }
+            
+            self.refreshControl?.endRefreshing()
+        })
+    }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
 
         // Configure the cell...
+        let post = posts[indexPath.row]
+        
+        //guard let imageUUID =
+        
+        cell.postLabel.text = post.text
+        cell.emailLabel.text = post.email
+        
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

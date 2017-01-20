@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		6C100F4F1DA36C5161FE0900 /* Pods_iDev_Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F51223EB2A3C3EE70D81648 /* Pods_iDev_Social.framework */; };
+		FA42E1931E319F9C00390216 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42E1921E319F9C00390216 /* PostViewController.swift */; };
+		FA42E1951E31A96F00390216 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42E1941E31A96F00390216 /* PostCell.swift */; };
+		FA42E1971E31AAA500390216 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42E1961E31AAA500390216 /* Post.swift */; };
+		FA42E1991E31B76D00390216 /* PostPCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42E1981E31B76D00390216 /* PostPCell.swift */; };
 		FA5A923C1E2EFD45009E4266 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA5A923B1E2EFD45009E4266 /* GoogleService-Info.plist */; };
 		FA5A92421E2F0E85009E4266 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5A92411E2F0E85009E4266 /* FeedViewController.swift */; };
 		FA94B6411E2EFA990031BE51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA94B6401E2EFA990031BE51 /* AppDelegate.swift */; };
@@ -20,6 +24,10 @@
 /* Begin PBXFileReference section */
 		3F51223EB2A3C3EE70D81648 /* Pods_iDev_Social.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iDev_Social.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		463DC65B43911E870198021B /* Pods-iDev Social.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iDev Social.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iDev Social/Pods-iDev Social.debug.xcconfig"; sourceTree = "<group>"; };
+		FA42E1921E319F9C00390216 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		FA42E1941E31A96F00390216 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		FA42E1961E31AAA500390216 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		FA42E1981E31B76D00390216 /* PostPCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostPCell.swift; sourceTree = "<group>"; };
 		FA5A923B1E2EFD45009E4266 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA5A92411E2F0E85009E4266 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		FA94B63D1E2EFA980031BE51 /* iDev Social.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iDev Social.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +98,10 @@
 				FA94B6491E2EFA990031BE51 /* LaunchScreen.storyboard */,
 				FA94B64C1E2EFA990031BE51 /* Info.plist */,
 				FA5A92411E2F0E85009E4266 /* FeedViewController.swift */,
+				FA42E1921E319F9C00390216 /* PostViewController.swift */,
+				FA42E1941E31A96F00390216 /* PostCell.swift */,
+				FA42E1961E31AAA500390216 /* Post.swift */,
+				FA42E1981E31B76D00390216 /* PostPCell.swift */,
 			);
 			path = "iDev Social";
 			sourceTree = "<group>";
@@ -219,9 +231,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA42E1931E319F9C00390216 /* PostViewController.swift in Sources */,
 				FA94B6431E2EFA990031BE51 /* ViewController.swift in Sources */,
 				FA5A92421E2F0E85009E4266 /* FeedViewController.swift in Sources */,
+				FA42E1991E31B76D00390216 /* PostPCell.swift in Sources */,
+				FA42E1971E31AAA500390216 /* Post.swift in Sources */,
 				FA94B6411E2EFA990031BE51 /* AppDelegate.swift in Sources */,
+				FA42E1951E31A96F00390216 /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
